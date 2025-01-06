@@ -47,4 +47,13 @@ public with sharing class ListUtil {
         }
         return accounts;
     }
+
+    public List<Account> mergeAccountLists(List<Account> accounts1, List<Account> accounts2){
+        for(Account account : accounts2){
+            if(!accounts1.contains(account) && account != null){
+                accounts1.add(account);
+            }
+        }
+        return accounts1;
+    }
 }
