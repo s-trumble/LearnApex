@@ -16,4 +16,15 @@ public with sharing class ListsPractice {
         Boolean result = listToTest.contains(input);
         return result;
     }
+    public String findFirstElement(List<String> providedList){
+        if(providedList.isEmpty()){
+            return null;
+        }else {
+            return providedList[0];
+        }
+    }
+    public List<Integer> appendElementToList(List<Integer> nums, Integer num){
+        nums.add(num);
+        return nums;
+    }
 }
