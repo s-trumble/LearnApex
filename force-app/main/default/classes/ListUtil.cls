@@ -27,4 +27,24 @@ public with sharing class ListUtil {
         }
         return lastThree;
     }
+    public List<Integer> removeFirstElement(List<Integer> nums){
+
+        if(nums == null || nums.isEmpty()){
+            return nums;
+        } else {
+            nums.remove(0);
+            return nums;
+        }
+    }
+    public List<Account> insertAccountAtIndex(Integer index, Account account, List<Account> accounts){
+        if(accounts == null || accounts.isEmpty()){
+            return accounts;
+        }
+        Integer listSize = accounts.size();
+        if(index < listSize ){
+            accounts.add(index,account);
+            
+        }
+        return accounts;
+    }
 }
