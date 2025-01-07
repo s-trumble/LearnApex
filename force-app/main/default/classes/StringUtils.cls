@@ -62,5 +62,13 @@ public class StringUtils {
         return result;
     }
     
+    public Integer splitByCharacterTypeCount(String input){
+        if(String.isBlank(input)){
+            return 0;
+        }
+        List<String> splitCharType = input.splitByCharacterType();
+        Integer listSize = splitCharType.size();
+        return listSize;
+    }
     
 }
