@@ -70,5 +70,26 @@ public class StringUtils {
         Integer listSize = splitCharType.size();
         return listSize;
     }
+
+    public Boolean isIsogram(String word){
+        /*Create a method named 'isIsogram' that takes a string as a parameter and 
+        returns a boolean value. If the given string is an isogram, the method should 
+        return true; otherwise, it should return false. 
+
+        An isogram is a word or phrase without any repeating letters; 
+        that is, no letter appears more than once. 
+        Assume the given string consists of all letters.
+        */    
+        if(String.isBlank(word)){
+            return false;
+        }
+        Integer wordlength = word.length();
+        Set<String> wordSet = new Set<String>(word.toLowerCase().split(''));
+        if(wordlength == wordSet.size()){
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 }
