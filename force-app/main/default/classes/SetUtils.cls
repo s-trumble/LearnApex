@@ -9,4 +9,17 @@ public with sharing class SetUtils {
             return false;
         }
     }
+
+    public Set<String> getUniqueAccountNames(List<String> accountNames){
+        if(accountNames == null || accountNames.isEmpty()){
+            return new Set<String>();
+        }
+        Set<String> uniqueAccounts = new Set<String>();
+        for(String name : accountNames){
+            if(name != null){   
+                uniqueAccounts.add(name.toLowerCase());
+            }   
+        }
+        return uniqueAccounts;
+    }
 }
