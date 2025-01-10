@@ -12,4 +12,18 @@ public class ListUtils {
         }
         return finalList;
     }
+
+    public List<Integer> getCommonElements(List<Integer> list1, List<Integer> list2){
+        if(list1 == null || list2 == null ){
+            return null;
+        }
+        if(list1.isEmpty() || list2.isEmpty()){
+            List<Integer> emptyList = new List<Integer>();
+            return emptyList;
+        }
+        Set<Integer> commonSet = new Set<Integer>(list1);
+        commonSet.retainAll(list2);
+        
+        return new List<Integer>(commonSet); 
+    }
 }
