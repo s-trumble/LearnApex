@@ -92,4 +92,21 @@ public class StringUtils {
         }
     }
     
+
+    public void calculateAsciiSumUntilThirdP(String saying) {
+        Integer pCount = 0;
+        Integer sumASCII = 0;
+
+   
+        for (Integer i = 0; i < saying.length(); i++) {
+            if (saying.substring(i,i+1).toLowerCase() == 'p') {
+                pCount ++;
+                if (pCount == 3) {
+                    break;
+                }
+            }
+            sumASCII += saying.charAt(i);
+        }
+        system.debug('Sum of ASCII values until third "p": ' + sumASCII);
+    }
 }
