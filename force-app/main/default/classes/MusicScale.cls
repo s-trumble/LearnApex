@@ -7,10 +7,10 @@ public with sharing class MusicScale {
         If the sequence of notes follows a whole-half-whole-whole-half-whole-whole step pattern, 
         it's a "Minor Scale".
         */
-        if (notes.size() != 8) {
+        if (scale.size() != 8) {
             return 'Insufficient notes for a scale';
         }
-        
+
         List<Integer> pattern = new List<Integer>();
         List<Integer> majorScale = new List<Integer>{2,2,1,2,2,2,1};
         List<Integer> minorScale = new List<Integer>{2,1,2,2,1,2,2};
