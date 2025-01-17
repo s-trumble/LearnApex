@@ -13,7 +13,23 @@ public with sharing class NumberUtils {
             return true;
         } else {
             return false;
+        }  
+    }
+
+    public Boolean isItsDigitsSumOdd(Integer num){
+        if(num == null || num == 0){
+            return false;
         }
-        
+        num = Math.abs(num);
+        String numAsString = String.valueOf(num);
+        Integer sumOfDigits = 0;
+        for(Integer i = 0 ; i < numAsString.length() ; i++){
+            sumOfDigits += Integer.valueOf(numAsString.substring(i, i + 1));
+        }
+        if(Math.mod(sumOfDigits, 2) == 0){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
