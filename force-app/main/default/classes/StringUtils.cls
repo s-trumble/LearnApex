@@ -109,4 +109,24 @@ public class StringUtils {
         }
         system.debug('Sum of ASCII values until third "p": ' + sumASCII);
     }
+
+    public String capToFront(String input){
+        
+        if(String.isBlank(input)){
+            return input;
+        }
+        String upperCase = '';
+        String lowerCase = '';
+
+        for(Integer i = 0; i < input.length() ; i++){
+            if(input.substring(i , i + 1).isAllUpperCase()){
+                upperCase += input.substring(i , i + 1);
+            } else {
+                lowerCase += input.substring(i , i + 1);
+            }
+        }
+        String result = upperCase + lowerCase;
+        
+        return result;
+    }
 }
