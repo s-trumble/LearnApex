@@ -32,4 +32,22 @@ public with sharing class NumberUtils {
             return true;
         }
     }
+
+    public Boolean isPerfectNumber(Integer num){
+        /*A number is considered perfect if the sum of its proper divisors (excluding itself) equals the number itself. 
+        For example, 28 is a perfect number because the sum of its proper divisors (1, 2, 4, 7, 14) equals 28.
+        */
+        if(num == null || num <= 0){
+            return false;
+        }
+
+        Integer divisorSum = 0;
+
+        for(Integer i = 1 ; i <= num/2 ; i++ ){
+            if(Math.mod(num, i) == 0){
+                divisorSum += i;
+            }
+        }
+       return divisorSum == num;
+    }
 }
