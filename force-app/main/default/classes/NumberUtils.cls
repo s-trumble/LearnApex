@@ -73,4 +73,15 @@ public with sharing class NumberUtils {
         }      
         return perfectNumbers;
     }
+
+    public List<Integer> getMultiples(Integer num, Integer length){
+        List<Integer> multiples = new List<Integer>();
+        if(length == null || num == null ||  length < 0){
+            return multiples;
+        }
+        for(Integer i = 1 ; i <= length ; i++){
+            multiples.add(num * i);
+        }
+        return multiples;
+    }
 }
