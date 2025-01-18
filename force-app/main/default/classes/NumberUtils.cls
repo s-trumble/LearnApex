@@ -50,4 +50,27 @@ public with sharing class NumberUtils {
         }
        return divisorSum == num;
     }
+
+    public List<Integer> getPerfectNumbers(List<Integer> nums){
+        List<Integer> perfectNumbers = new List<Integer>();
+        if(nums == null || nums.isEmpty()){
+            return perfectNumbers;
+        }
+        
+        for(Integer num : nums){
+            if(num >= 1){
+                Integer divisorSum = 0;
+                for(Integer i = 1 ; i <= num/2 ; i++ ){
+                    
+                    if(Math.mod(num, i) == 0){
+                        divisorSum += i;
+                    }
+                }
+                if(divisorSum == num){
+                    perfectNumbers.add(num);
+                }
+            }
+        }      
+        return perfectNumbers;
+    }
 }
