@@ -97,4 +97,20 @@ public with sharing class NumberUtils {
         }
         return multiples;
     }
+
+    public Integer squareDigits(Integer num){
+        Integer result = 0;
+        if(num == 0){
+            return result;
+        }
+        num = Math.abs(num);
+        String numAsString = String.valueOf(num);
+        String squaredDigits = '';
+        for(Integer i = 0 ; i < numAsString.length() ; i++){
+            Integer digit = Integer.valueOf(numAsString.substring(i, i + 1));
+            squaredDigits += String.valueOf(digit * digit);
+        }
+        result = Integer.valueOf(squaredDigits);
+        return result;
+    }
 }
