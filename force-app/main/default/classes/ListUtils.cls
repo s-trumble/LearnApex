@@ -26,4 +26,18 @@ public class ListUtils {
         
         return new List<Integer>(commonSet); 
     }
+
+    public List<Integer> getGreaterNeighbors(List<Integer> nums){
+        List<Integer> greatherNeighbors = new List<Integer>();
+
+        if(nums == null || nums.isEmpty() || nums.size() < 3){
+            return greatherNeighbors;
+        }
+        for(Integer i = 1 ; i < nums.size() - 1 ; i++){
+            if(nums[i] > nums[i-1] && nums[i] > nums[i+1]){
+                greatherNeighbors.add(nums[i]);
+            }
+        }
+        return greatherNeighbors;
+    }
 }
