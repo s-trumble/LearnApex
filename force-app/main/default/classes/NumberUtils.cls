@@ -84,4 +84,17 @@ public with sharing class NumberUtils {
         }
         return multiples;
     }
+
+    public List<Integer> getMultiplesWithEvens(Integer num, Integer length){
+        List<Integer> multiples = new List<Integer>();
+        if(length == null || num == null ||  length < 0){
+            return multiples;
+        }
+        for(Integer i = 1 ; i <= length ; i++){
+            if(Math.mod(i, 2) == 0){
+                multiples.add(num * i) ;
+            }
+        }
+        return multiples;
+    }
 }
