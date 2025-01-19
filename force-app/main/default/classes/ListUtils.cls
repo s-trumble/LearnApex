@@ -40,4 +40,19 @@ public class ListUtils {
         }
         return greatherNeighbors;
     }
+
+    public List<String> getShorterLengthStrings(List<String> inputs){
+        List<String> shorterLengthStrings = new List<String>();
+
+        if(inputs == null || inputs.isEmpty() || inputs.size() < 3){
+            return shorterLengthStrings;
+        }
+        for(Integer i = 1 ; i < inputs.size() - 1 ; i++){
+            Integer iLength = inputs[i].length();
+            if(iLength < inputs[i-1].length() && iLength < inputs[i+1].length()){
+                shorterLengthStrings.add(inputs[i]);
+            }
+        }
+        return shorterLengthStrings;
+    }
 }
