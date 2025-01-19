@@ -129,4 +129,37 @@ public class StringUtils {
         
         return result;
     }
+
+    public Integer countLowercaseLetters(String input){
+        Integer lowerCaseLetters = 0;
+
+        if(String.isBlank(input)){
+            return lowerCaseLetters;
+        }
+
+        for(Integer i = 0 ; i < input.length() ; i++){
+            if(input.substring(i,i+1).isAllLowerCase()){
+                lowerCaseLetters++;
+            }
+        }
+        return lowerCaseLetters;
+    }
+
+    public String concatenateUppercaseLetters(String input){
+        String result = '';
+
+        if(String.isBlank(input)){
+            return result;
+        }
+
+        for(Integer i = 0 ; i < input.length() ; i++){
+            if(input.substring(i, i + 1).isAllUpperCase()){
+                result += input.substring(i, i + 1);
+                if(i < input.length() - 1){
+                    result += '*';
+                }
+            }
+        }
+        return result;
+    }
 }
