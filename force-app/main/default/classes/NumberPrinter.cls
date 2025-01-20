@@ -19,8 +19,12 @@ public with sharing class NumberPrinter {
 
         for(Integer i = 1 ; i <= num ; i++){
             
-            if(i!=2){
-                 System.debug('This is for number ' + i);
+            if(i==2){
+                continue;
+                System.debug('Please skip numer 2.');
+                 
+            } else {
+                System.debug('This is for number ' + i);
             }
         }
         return true;
