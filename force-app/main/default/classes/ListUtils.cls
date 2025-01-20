@@ -67,4 +67,17 @@ public class ListUtils {
         }
         return sumList;
     }
+
+    public List<String> reverseList(List<String> inputs){
+        List<String> reverseList = new List<String>();
+
+        if(inputs == null || inputs.isEmpty()){
+            return reverseList;
+        }
+
+        for(Integer i = inputs.size() - 1 ; i >= 0 ; i-- ){
+            reverseList.add(inputs[i]);
+        }
+        return reverseList;
+    }
 }
