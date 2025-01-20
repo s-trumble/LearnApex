@@ -55,4 +55,29 @@ public class ListUtils {
         }
         return shorterLengthStrings;
     }
+
+    public List<Integer> addLists(List<Integer> list1, List<Integer> list2){
+        List<Integer> sumList = new List<Integer>();
+        if(list1 == null || list1.isEmpty() || list2 == null || list2.isEmpty()){
+            return sumList;
+        }
+
+        for(Integer i = 0 ; i < list1.size() ; i++){
+            sumList.add(list1[i] + list2[i]);
+        }
+        return sumList;
+    }
+
+    public List<String> reverseList(List<String> inputs){
+        List<String> reverseList = new List<String>();
+
+        if(inputs == null || inputs.isEmpty()){
+            return reverseList;
+        }
+
+        for(Integer i = inputs.size() - 1 ; i >= 0 ; i-- ){
+            reverseList.add(inputs[i]);
+        }
+        return reverseList;
+    }
 }
