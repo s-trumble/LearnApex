@@ -175,4 +175,18 @@ public class StringUtils {
         }
         return everyFifthElement;
     }
+
+    public String removeDuplicates(String input){
+        String noDuplicates = '';
+        if(String.isBlank(input)){
+            return noDuplicates;
+        }
+
+        for(Integer i = 0 ; i < input.length() ; i++){
+            if(!noDuplicates.contains(input.substring(i, i+1))){
+                noDuplicates += input.substring(i, i+1);
+            }
+        }
+        return noDuplicates;
+    }
 }
