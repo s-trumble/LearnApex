@@ -162,4 +162,17 @@ public class StringUtils {
         }
         return result;
     }
+
+    public List<String> getEveryFifthElement(List<String> strings){
+        List<String> everyFifthElement = new List<String>();
+
+        if(strings == null || strings.isEmpty()){
+            return everyFifthElement;
+        }
+
+        for(Integer i = 0; i < strings.size() ; i += 5){
+            everyFifthElement.add(strings[i]);
+        }
+        return everyFifthElement;
+    }
 }
