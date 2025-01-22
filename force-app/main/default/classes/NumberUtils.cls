@@ -113,4 +113,45 @@ public with sharing class NumberUtils {
         result = Integer.valueOf(squaredDigits);
         return result;
     }
+
+    public List<Integer> generateSequence(Integer num){
+        List<Integer> sequence = new List<Integer>();
+        if(num == null || num <= 0){
+            return sequence;
+            }
+        
+
+        for(Integer i = 1 ; i <= num ; i++){
+            if(Math.mod(i, 4) == 0){
+                sequence.add(i * 10);
+            } else{
+                sequence.add(i);
+            }
+        }
+        return sequence;
+    }
+
+    /*Write a method named 'findDivisibleNumbers' that takes three integers as parameters:
+
+x, which represents the start of the range (inclusive).
+y, which represents the end of the range (inclusive).
+n, which represents the divisor to be checked against.
+*/
+    public List<Integer> findDivisibleNumbers(Integer x, Integer y, Integer z){
+        List<Integer> result = new List<Integer>();
+        if(x == null || y == null || z == null){
+            return result;
+        }
+
+        if(x > y){
+            return result;
+        }
+
+        for(Integer i = x; i <= y ; i++){
+            if(Math.mod(i, z) == 0){
+                result.add(i);
+            }
+        }
+        return result;
+    }
 }
