@@ -56,4 +56,28 @@ public with sharing class ListUtil {
         }
         return accounts1;
     }
+
+    public List<Integer> prepareNumberList(List<Integer> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return new List<Integer>();
+        }
+
+        if(inputList.size() == 2){
+            return inputList;
+        }
+        Integer firstElement = inputList.get(0) != null ? inputList.get(0) : 0;
+        Integer lastElement = inputList.get(inputList.size() - 1) != null ? inputList.get(inputList.size() - 1) : 0;
+        Integer sum = firstElement + lastElement;
+        Integer average = Math.round(sum / 2.0);
+
+        for(Integer i = 0; i < inputList.size() ; i++){
+            if (inputList.get(i) == null || inputList.get(i) == 0) {
+                inputList.set(i, average);
+                System.debug('nums: ' + inputList);
+            }
+        }
+        inputList.sort();
+        System.debug('sorted: ' + inputList);
+        return inputList;
+    }
 }
