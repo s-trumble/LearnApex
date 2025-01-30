@@ -60,4 +60,31 @@ public with sharing class ListProcessor {
         }
         return zeroCounter;
     }
+
+    public Boolean isEvenOddIndexValid(List<Integer> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return false;
+        }
+        Integer i = 0;
+        while(i < inputList.size()){
+            if(Math.mod(inputList[i],2) == 0){
+                if(Math.mod(i,2)==0){
+                    i++;
+                    continue;
+                } else{
+                    return false;
+                }
+            }
+            if(Math.mod(inputList[i],2) != 0){
+                if(Math.mod(i,2) != 0){
+                    i++;
+                    continue;
+                } else{
+                    return false;
+                }
+                
+            }
+        }
+        return true;
+    }
 }
