@@ -43,4 +43,21 @@ public with sharing class ListProcessor {
         }
         return false;
     }
+
+    public Integer removeAndCountZeroes(List<Integer> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return 0;
+        }
+        Integer zeroCounter = 0;
+        Integer i = 0;
+        while(i < inputList.size()){
+            if(inputList.get(i) == 0 ){
+                inputList.remove(i);
+                zeroCounter++;
+            }else{
+                i++; //only increment when item not removed. if item removed the lsit indexs will change
+            }
+        }
+        return zeroCounter;
+    }
 }
