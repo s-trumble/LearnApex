@@ -154,4 +154,32 @@ n, which represents the divisor to be checked against.
         }
         return result;
     }
+
+    public Integer sumUpToNumber(Integer n){
+        if(n == null || n < 1){
+            return 0;
+        }
+
+        Integer sum = 0;
+        Integer i = 1;
+        while(i <= n){
+            sum += i;
+            i++;
+        }
+        return sum;
+    }
+
+    public Integer sumOddNumbers(Integer n){
+        if(n == null || n < 1){
+            return 0;
+        }
+
+        Integer sum = 0;
+        Integer i = 1;
+        while(i <= n){
+            sum += i;
+            i += 2;
+        }
+        return sum;
+    }
 }
