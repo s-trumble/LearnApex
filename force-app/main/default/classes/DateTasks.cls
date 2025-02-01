@@ -13,14 +13,29 @@ public class DateTasks {
         system.debug('age is:'+age);
         return age;
     }
-}
-       /*
-        Integer daysBetween = birthdate.daysBetween(system.today());
-        system.debug(daysBetween);
-        Integer age = (Integer)Math.round(daysBetween/365.25);
-        system.debug('age is:'+age);
-        return age;
 
+    public Integer calculateBusinessDays(Date startDate, Date endDate){
+        if(startDate == null || endDate == null){
+            return 0;
+        }
+        if(startDate >= endDate){
+            return 0;
+        }
+        Integer businessdays = 0;
+        
+
+        while(startDate <= endDate){
+            // Cast the Date variable into a DateTime
+        DateTime startDateTime = (DateTime) startDate;
+        String dayOfWeek = startDateTime.format('E');
+        // dayOfWeek is Sun, Mon, Tue, etc.
+            if(dayOfWeek != 'Sat' && dayOfWeek != 'Sun'){
+                businessdays++;
+            }
+            startDate = startDate.addDays(1);
+        }
+
+        System.debug('numberofbusinessdaysis:'+businessdays);
+        return businessdays;
     }
 }
-*/
