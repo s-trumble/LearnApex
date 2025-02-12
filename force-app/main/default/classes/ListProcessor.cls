@@ -87,4 +87,22 @@ public with sharing class ListProcessor {
         }
         return true;
     }
+
+    public List<Integer> processList(List<Integer> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return new List<Integer>();
+        }
+        List<Integer> updatedList = new List<Integer>();
+
+        for(Integer value : inputList){
+            if(value > 1000){
+                value *= 2;
+                
+            } else {
+                value *= 3;
+            }
+            updatedList.add(value);
+        }
+        return updatedList;
+    }
 }
