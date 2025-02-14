@@ -189,4 +189,22 @@ public class StringUtils {
         }
         return noDuplicates;
     }
+
+    public Integer countUpperCaseLetters(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return 0;
+        }
+        Integer total = 0;
+        for(String word : inputList){
+            if(word != null){
+                List<String> letterSplit = word.split('');
+                for(String letter : letterSplit){
+                    if(letter.isAllUpperCase()){
+                        total++;
+                    }
+                }
+            }
+        }
+        return total;
+    }
 }
