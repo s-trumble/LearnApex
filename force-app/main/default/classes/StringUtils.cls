@@ -207,4 +207,21 @@ public class StringUtils {
         }
         return total;
     }
+
+    public Integer sumOfDigitsInStrings(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return 0;
+        }
+
+        Integer sumOfDigits = 0;
+        for(String word : inputList){
+            List<String> characterSplit = word.split('');
+            for(String character : characterSplit){
+                if(character.isNumeric()){
+                    sumOfDigits += Integer.valueOf(character);
+                }
+            }
+        }
+        return sumOfDigits;
+    }
 }
