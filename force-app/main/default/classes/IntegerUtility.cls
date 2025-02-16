@@ -20,4 +20,19 @@ public with sharing class IntegerUtility {
 
         return sum;
     }
+
+    public Integer sumOfDigitValues(Integer n){
+        if(n == null){
+            return 0;
+        }
+        n = Math.abs(n);
+
+        List<String> nList = n.toString().split('');
+        Integer sumOfDigits = 0;
+        for(String num : nList){
+            sumOfDigits += Integer.valueOf(num);
+        }
+
+        return sumOfDigits;
+    }
 }

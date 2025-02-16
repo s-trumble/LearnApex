@@ -189,4 +189,63 @@ public class StringUtils {
         }
         return noDuplicates;
     }
+
+    public Integer countUpperCaseLetters(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return 0;
+        }
+        Integer total = 0;
+        for(String word : inputList){
+            if(word != null){
+                List<String> letterSplit = word.split('');
+                for(String letter : letterSplit){
+                    if(letter.isAllUpperCase()){
+                        total++;
+                    }
+                }
+            }
+        }
+        return total;
+    }
+
+    public Integer sumOfDigitsInStrings(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return 0;
+        }
+
+        Integer sumOfDigits = 0;
+        for(String word : inputList){
+            List<String> characterSplit = word.split('');
+            for(String character : characterSplit){
+                if(character.isNumeric()){
+                    sumOfDigits += Integer.valueOf(character);
+                }
+            }
+        }
+        return sumOfDigits;
+    }
+
+    public List<String> toggleCase(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return new List<String>();
+        }
+        List<String> result = new List<String>();
+        for(String str : inputList){
+            result.add(str.swapCase());
+        }
+        /*for(String word : inputList){
+            String updatedWord = '';
+            for(String letter : word.split('')){
+                if(letter.isAllLowerCase()){
+                    letter  = letter.toUpperCase();
+                } else {
+                    letter = letter.toLowerCase();
+                }
+                updatedWord += letter;
+                
+            }
+            result.add(updatedWord);
+        }*/
+        return result;
+    }
 }
