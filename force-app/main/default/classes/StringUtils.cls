@@ -224,4 +224,28 @@ public class StringUtils {
         }
         return sumOfDigits;
     }
+
+    public List<String> toggleCase(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return new List<String>();
+        }
+        List<String> result = new List<String>();
+        for(String str : inputList){
+            result.add(str.swapCase());
+        }
+        /*for(String word : inputList){
+            String updatedWord = '';
+            for(String letter : word.split('')){
+                if(letter.isAllLowerCase()){
+                    letter  = letter.toUpperCase();
+                } else {
+                    letter = letter.toLowerCase();
+                }
+                updatedWord += letter;
+                
+            }
+            result.add(updatedWord);
+        }*/
+        return result;
+    }
 }
