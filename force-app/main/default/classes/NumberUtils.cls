@@ -16,6 +16,22 @@ public with sharing class NumberUtils {
         }  
     }
 
+    public Boolean areAllRepDigits(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return false;
+        }
+        for(Integer num : nums){
+            if(num < 0){
+                return false;
+            }
+            Set<String> numSet = new Set<String>(String.valueOf(num).split(''));
+            if(numSet.size() != 1){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public Boolean isItsDigitsSumOdd(Integer num){
         if(num == null || num == 0){
             return false;
