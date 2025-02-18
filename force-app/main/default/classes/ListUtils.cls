@@ -80,4 +80,31 @@ public class ListUtils {
         }
         return reverseList;
     }
+
+    public List<String> concatenateLists(List<List<String>> listOfLists){
+        if(listOfLists == null || listOfLists.isEmpty()){
+            return new List<String>();
+        }
+        List<String> result = new List<String>();
+
+        for(List<String> eachList : listOfLists){
+            result.addAll(eachList);
+        }
+        return result;
+    }
+
+    public List<Integer> mergeListsGreaterThanThree(List<List<Integer>> inputLists){
+        List<Integer> result = new List<Integer>();
+        
+        if(inputLists == null || inputLists.isEmpty()){
+            return result;
+        }
+
+        for(List<Integer> eachList : inputLists){
+            if(eachList != null && !eachList.isEmpty() && eachList.size() > 3){
+                result.addAll(eachList);
+            }
+        }
+        return result;
+    }
 }
