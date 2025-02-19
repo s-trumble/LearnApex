@@ -248,4 +248,21 @@ public class StringUtils {
         }*/
         return result;
     }
+
+    public List<String> centerStrings(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return new List<String>();
+        }
+
+        String updatedString = '';
+        List<String> updatedList = new List<String>();
+
+        for(String str : inputList){
+            if(str != null && !String.isEmpty(str)){
+                updatedString = '***' + str + '***';
+                updatedList.add(updatedString);
+            }
+        }
+        return updatedList;
+    }
 }

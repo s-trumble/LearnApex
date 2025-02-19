@@ -16,6 +16,22 @@ public with sharing class NumberUtils {
         }  
     }
 
+    public Boolean areAllRepDigits(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return false;
+        }
+        for(Integer num : nums){
+            if(num < 0){
+                return false;
+            }
+            Set<String> numSet = new Set<String>(String.valueOf(num).split(''));
+            if(numSet.size() != 1){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public Boolean isItsDigitsSumOdd(Integer num){
         if(num == null || num == 0){
             return false;
@@ -181,5 +197,37 @@ n, which represents the divisor to be checked against.
             i += 2;
         }
         return sum;
+    }
+
+    public Integer findMaximum(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return null;
+        }
+        Integer maxNum = nums[0];
+        for(Integer num : nums){
+            if(num > maxNum){
+                maxNum = num;
+            }
+        }
+        return maxNum;
+    }
+
+    public List<Integer> modifyNumbers(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return new List<Integer>();
+        }
+
+        List<Integer> updatedNums = new List<Integer>();
+
+        for(Integer num : nums){
+            //check if even
+            if(Math.mod(num, 2) == 0){
+                num -= 1;
+            } else {
+                num += 1;
+            }
+            updatedNums.add(num);
+        }
+        return updatedNums;
     }
 }

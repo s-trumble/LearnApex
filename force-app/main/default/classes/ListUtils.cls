@@ -80,4 +80,68 @@ public class ListUtils {
         }
         return reverseList;
     }
+
+    public List<String> concatenateLists(List<List<String>> listOfLists){
+        if(listOfLists == null || listOfLists.isEmpty()){
+            return new List<String>();
+        }
+        List<String> result = new List<String>();
+
+        for(List<String> eachList : listOfLists){
+            result.addAll(eachList);
+        }
+        return result;
+    }
+
+    public List<Integer> mergeListsGreaterThanThree(List<List<Integer>> inputLists){
+        List<Integer> result = new List<Integer>();
+        
+        if(inputLists == null || inputLists.isEmpty()){
+            return result;
+        }
+
+        for(List<Integer> eachList : inputLists){
+            if(eachList != null && !eachList.isEmpty() && eachList.size() > 3){
+                result.addAll(eachList);
+            }
+        }
+        return result;
+    }
+
+    public Boolean areAllIsograms(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return false;
+        }
+
+        for(String str : inputList){
+            if(str == null || String.isEmpty(str)){
+                return false;
+            }
+            //use set set so unique characters
+            Set<String> strSet = new Set<String>(str.toLowerCase().split(''));
+            //set size and string length should be equal for isogram
+            if(strSet.size() != str.length()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public String count0And1(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return 'Input list is empty';
+        }
+
+        Integer numberOfZeros = 0;
+        Integer numberOfOnes = 0;
+
+        for(Integer num : nums){
+            if(num == 0){
+                numberOfZeros++;
+            } else if(num == 1){
+                numberOfOnes++;
+            }
+        }
+        return 'Number of 0 is ' + numberOfZeros + ' and number of 1 is ' + numberOfOnes;
+    }
 }
