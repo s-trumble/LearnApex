@@ -126,4 +126,22 @@ public class ListUtils {
         }
         return true;
     }
+
+    public String count0And1(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return 'Input list is empty';
+        }
+
+        Integer numberOfZeros = 0;
+        Integer numberOfOnes = 0;
+
+        for(Integer num : nums){
+            if(num == 0){
+                numberOfZeros++;
+            } else if(num == 1){
+                numberOfOnes++;
+            }
+        }
+        return 'Number of 0 is ' + numberOfZeros + ' and number of 1 is ' + numberOfOnes;
+    }
 }
