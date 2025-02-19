@@ -107,4 +107,23 @@ public class ListUtils {
         }
         return result;
     }
+
+    public Boolean areAllIsograms(List<String> inputList){
+        if(inputList == null || inputList.isEmpty()){
+            return false;
+        }
+
+        for(String str : inputList){
+            if(str == null || String.isEmpty(str)){
+                return false;
+            }
+            //use set set so unique characters
+            Set<String> strSet = new Set<String>(str.toLowerCase().split(''));
+            //set size and string length should be equal for isogram
+            if(strSet.size() != str.length()){
+                return false;
+            }
+        }
+        return true;
+    }
 }
