@@ -198,4 +198,36 @@ n, which represents the divisor to be checked against.
         }
         return sum;
     }
+
+    public Integer findMaximum(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return null;
+        }
+        Integer maxNum = nums[0];
+        for(Integer num : nums){
+            if(num > maxNum){
+                maxNum = num;
+            }
+        }
+        return maxNum;
+    }
+
+    public List<Integer> modifyNumbers(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return new List<Integer>();
+        }
+
+        List<Integer> updatedNums = new List<Integer>();
+
+        for(Integer num : nums){
+            //check if even
+            if(Math.mod(num, 2) == 0){
+                num -= 1;
+            } else {
+                num += 1;
+            }
+            updatedNums.add(num);
+        }
+        return updatedNums;
+    }
 }
