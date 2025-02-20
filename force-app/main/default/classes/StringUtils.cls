@@ -265,4 +265,36 @@ public class StringUtils {
         }
         return updatedList;
     }
+
+    public String prepareVeggieSalad(List<String> veggies) {
+        // Initialize a list to hold the chunks
+        List<String> chunks = new List<String>();
+        
+        // Check if the input list is null or empty
+        if (veggies == null || veggies.isEmpty()) {
+            return ''; // Return an empty string if the input is invalid or empty
+        }
+        
+        // Iterate through the list of vegetable names
+        for (String veggie : veggies) {
+        if (veggie == null || String.isEmpty(veggie)) {
+                continue; // Skip null or empty vegetable names
+            }
+            Integer mid = Math.floor(veggie.length() / 2).intValue();
+            // Slice the vegetable name into two halves
+            String firstHalf = veggie.substring(0, mid);
+            String secondHalf = veggie.substring(mid);
+            // Add both halves to the chunks list
+            chunks.add(firstHalf);
+            chunks.add(secondHalf);
+        }
+        
+        // Sort the chunks alphabetically
+        chunks.sort();
+        
+        // Combine the sorted chunks all together to form the final string
+        String result = String.join(chunks, '');
+        
+        return result;
+    }
 }
