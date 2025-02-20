@@ -230,4 +230,24 @@ n, which represents the divisor to be checked against.
         }
         return updatedNums;
     }
+
+    public Boolean hasPanDigital(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return false;
+        }
+        
+        for(Integer num : nums){
+            num = Math.abs(num);
+            Set<String> numSet = new Set<String>();
+            for(String splitNum : String.valueOf(num).split('')){
+                
+                numSet.add(splitNum);
+                if(numSet.size() == 10){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
