@@ -204,4 +204,18 @@ public class ListUtils {
         }
         return vowelSandwiches;
     }
+
+    public void animalAdjectives(){
+        List<String> animals=new List<String>{'bear', 'hawk', 'raccoon', 'impala', 'tiger'};
+        List<String> adjectives=new List<String>{'determined', 'cunning', 'curious', 'brave', 'smart'};
+
+    // Write your code here
+        List<String> nickNames = new List<String>();    
+        for(String animal : animals){
+            for(String adjective : adjectives){
+                nickNames.add(adjective + '-' + animal);
+            }
+        }
+        system.debug(nickNames);
+    }
 }
