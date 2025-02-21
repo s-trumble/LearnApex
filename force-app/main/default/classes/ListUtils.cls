@@ -144,4 +144,78 @@ public class ListUtils {
         }
         return 'Number of 0 is ' + numberOfZeros + ' and number of 1 is ' + numberOfOnes;
     }
+
+    public Boolean isPositiveDominant(List<Integer> numbers) {
+        // Check if the list is null or empty
+        if (numbers == null || numbers.isEmpty()) {
+            return false;
+        }
+        
+        // Initialize sets to store unique positive and negative values
+        Set<Integer> positiveSet = new Set<Integer>();
+        Set<Integer> negativeSet = new Set<Integer>();
+        
+        // Iterate through each number in the list
+        for (Integer num : numbers) {
+            if (num > 0) {
+                positiveSet.add(num);
+            } else if (num < 0) {
+                negativeSet.add(num);
+            }
+        }
+        
+        // Check if the number of unique positive values is strictly more than the number of unique negative values
+        return positiveSet.size() > negativeSet.size();
+    }
+
+    public List<String> findCommonElements(List<String> elementsOne, List<String> elementsTwo){
+        List<String> commonElements = new List<String>();
+        if(elementsOne == null || elementsTwo == null || elementsOne.isEmpty() || elementsTwo.isEmpty()){
+            return commonElements;
+        }
+
+        for(String element : elementsOne){
+            if(elementsTwo.contains(element) && !commonElements.contains(element)){
+                commonElements.add(element);
+            }
+        }
+
+        return commonElements;
+    }
+
+    public Integer countVowelSandwiches(List<String> words){
+        Integer vowelSandwiches = 0;
+        if(words == null || words.isEmpty()){
+            return vowelSandwiches;
+        }
+
+        String vowels = 'aeiou';
+        for(String word : words){
+            if(word != null && word.length() == 3){
+                word = word.toLowerCase();
+                Boolean firstLetterCon = !vowels.contains(word.substring(0,1));
+                Boolean secondLetterVow = vowels.contains(word.substring(1,2));
+                Boolean thirdLetterCon = !vowels.contains(word.substring(2,3));
+                if(firstLetterCon && secondLetterVow && thirdLetterCon == true){
+                    vowelSandwiches++;
+                }
+            }
+            
+        }
+        return vowelSandwiches;
+    }
+
+    public void animalAdjectives(){
+        List<String> animals=new List<String>{'bear', 'hawk', 'raccoon', 'impala', 'tiger'};
+        List<String> adjectives=new List<String>{'determined', 'cunning', 'curious', 'brave', 'smart'};
+
+    // Write your code here
+        List<String> nickNames = new List<String>();    
+        for(String animal : animals){
+            for(String adjective : adjectives){
+                nickNames.add(adjective + '-' + animal);
+            }
+        }
+        system.debug(nickNames);
+    }
 }

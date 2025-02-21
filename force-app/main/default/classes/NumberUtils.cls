@@ -230,4 +230,54 @@ n, which represents the divisor to be checked against.
         }
         return updatedNums;
     }
+
+    public Boolean hasPanDigital(List<Integer> nums){
+        if(nums == null || nums.isEmpty()){
+            return false;
+        }
+        
+        for(Integer num : nums){
+            num = Math.abs(num);
+            Set<String> numSet = new Set<String>();
+            for(String splitNum : String.valueOf(num).split('')){
+                
+                numSet.add(splitNum);
+                if(numSet.size() == 10){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public Boolean marathonDistance(List<Integer> kms){
+        if(kms == null || kms.isEmpty()){
+            return false;
+        }
+
+        Integer totalKms = 0;
+        for(Integer km : kms){
+            if(km != null){
+                km = Math.abs(km);
+                totalKms += km;
+            }
+        }
+        return totalKms == 15;
+    }
+
+    public void task65(){
+        List<Integer> numberList= new List<Integer>{19, 900, 7380, 30, 360, 85, 6, 20, 12, 840, 362, 2};
+
+    //Create a new list named 'numListAsc' containing elements from the given list that end with '0'. 
+    //Sort this new list in ascending order and print it on the console.
+        List<Integer> numListAsc = new List<Integer>();
+        for(Integer num : numberList){
+            if(String.valueOf(num).right(1) == '0'){
+                numListAsc.add(num);
+            }
+        }
+        numListAsc.sort();
+        system.debug(numListAsc);
+    }
 }
