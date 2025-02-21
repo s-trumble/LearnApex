@@ -182,4 +182,26 @@ public class ListUtils {
 
         return commonElements;
     }
+
+    public Integer countVowelSandwiches(List<String> words){
+        Integer vowelSandwiches = 0;
+        if(words == null || words.isEmpty()){
+            return vowelSandwiches;
+        }
+
+        String vowels = 'aeiou';
+        for(String word : words){
+            if(word != null && word.length() == 3){
+                word = word.toLowerCase();
+                Boolean firstLetterCon = !vowels.contains(word.substring(0,1));
+                Boolean secondLetterVow = vowels.contains(word.substring(1,2));
+                Boolean thirdLetterCon = !vowels.contains(word.substring(2,3));
+                if(firstLetterCon && secondLetterVow && thirdLetterCon == true){
+                    vowelSandwiches++;
+                }
+            }
+            
+        }
+        return vowelSandwiches;
+    }
 }
