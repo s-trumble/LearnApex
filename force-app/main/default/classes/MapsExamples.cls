@@ -7,13 +7,25 @@ public with sharing class MapsExamples {
         Map<String,Integer> wordToCount = new Map<String,Integer>();
 
         for(String word: words){
-            if(wordToCount.containsKey(word)){
+            if(wordToCount.containsKey(word.toLowerCase())){
                 Integer value = wordToCount.get(word);
-                wordToCount.put(word, value + 1);
+                wordToCount.put(word.toLowerCase(), value + 1);
             } else {
-                wordToCount.put(word, 1);
+                wordToCount.put(word.toLowerCase(), 1);
             }
         }
         return wordtoCount;
+    }
+
+    public Integer countOccurences(Map<String,String> inputMap, String targetValue){
+        Set<String> words = inputMap.keySet();
+        Integer occurences = 0;
+
+        for(String word : words){
+            if(inputMap.get(word) == targetValue){
+                occurences++;
+            }
+        }
+        return occurences;
     }
 }
