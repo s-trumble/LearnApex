@@ -6,6 +6,7 @@ public with sharing class OutstandingBalanceFinder {
             return customerBalances;
         }
         Map<String, Decimal> customerBalancesMap = new Map<String,Decimal>();
+        //calculate balance
         for(Transactions record : customerTransactions){
             if(customerBalancesMap.containsKey(record.customerId)){
                 customerBalancesMap.put(record.customerId, customerBalancesMap.get(record.customerId) + record.transactionAmount);
@@ -13,7 +14,7 @@ public with sharing class OutstandingBalanceFinder {
                 customerBalancesMap.put(record.customerId, record.transactionAmount);
             }
         }
-
+        //create the list of customerbalance objects
         for(String customerId : customerBalancesMap.keySet()){
             Decimal balance = customerBalancesMap.get(customerId);
             customerBalances.add(new CustomerBalance(customerId, balance));
