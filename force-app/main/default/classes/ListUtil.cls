@@ -80,4 +80,34 @@ public with sharing class ListUtil {
         System.debug('sorted: ' + inputList);
         return inputList;
     }
+
+    //maps task 30
+    public List<String> sortByLength(List<String> inputList){
+        //check if null or empty
+        if(inputList == null || inputList.isEmpty()){
+            return inputList;
+        }
+        //create map to store strings with their lengths as keys,
+        Map<Integer, List<String>> lengthMap = new Map<Integer,List<String>>();
+        
+
+        for(String word : inputList){
+            Integer length = word.length();
+            if(!lengthMap.containsKey(length)){
+                lengthMap.put(length, new List<String>());
+            }
+            lengthMap.get(length).add(word);
+        }
+
+        //get the keys (lengths) and sort them
+        List<Integer> lengths = new List<Integer>(lengthMap.keySet());
+        lengths.sort();
+
+        //create sorted list
+        List<String> sortedList = new List<String>();
+        for (Integer length : lengths){
+            sortedList.addAll(lengthMap.get(length));
+        }
+        return sortedList;
+    }
 }
