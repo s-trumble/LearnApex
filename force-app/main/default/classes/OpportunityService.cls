@@ -84,4 +84,21 @@ public class OpportunityService {
         }
         update opps;
     }
+
+    public void closeOldOpportunities(Integer amountOfMonths){
+        Date dateCompare = Date.today().addMonths(-amountOfMonths);
+        System.debug('datecompare: ' + dateCompare); 
+        
+        List<Opportunity> opps = [SELECT Id, StageName, CloseDate, CreatedDate
+                                FROM Opportunity
+                                WHERE StageName != 'Closed Lost'
+                                AND CloseDate < :dateCompare];
+        system.debug('opps: ' + opps);
+
+        for(Opportunity opp : opps){
+            opp.StageName = 'Closed Lost';
+        }
+
+        update opps;
+    }
 }
