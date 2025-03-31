@@ -74,4 +74,14 @@ public class OpportunityService {
         return opportunitiesPerAccount;
     }
 
+    public void updateOpportunityCloseDates(String stageName, Integer daysToAdd){
+        List<Opportunity> opps = [SELECT Id, StageName, CloseDate
+                                    FROM Opportunity
+                                    WHERE StageName = :stageName];
+        
+        for(Opportunity opp : opps){
+            opp.CloseDate = opp.CloseDate.addDays(daysToAdd);
+        }
+        update opps;
+    }
 }
