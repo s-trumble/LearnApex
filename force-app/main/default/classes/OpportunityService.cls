@@ -101,4 +101,15 @@ public class OpportunityService {
 
         update opps;
     }
+
+    public void addTimeToOpportunities(Set<Id> accountIds, Integer amountOfDays){
+        List<Opportunity> opps = [SELECT Id, CloseDate, AccountId
+                                FROM Opportunity
+                                WHERE AccountId IN :accountIds];
+
+        for(Opportunity opp : opps){
+            opp.CloseDate = opp.CloseDate.addDays(amountOfDays);
+        }
+        update opps;
+    }
 }
