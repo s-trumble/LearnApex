@@ -1,4 +1,4 @@
-trigger OpportunityTrigger on Opportunity (after update) {
+trigger OpportunityTrigger on Opportunity (after update, before update) {
     //task 2
     if(trigger.isAfter && trigger.isUpdate){
         List<Task> tasks = new List<Task>();
@@ -18,4 +18,19 @@ trigger OpportunityTrigger on Opportunity (after update) {
             insert tasks;
         }
     }
+
+    //task 4
+    if(trigger.isBefore && trigger.isUpdate){
+        
+        for(Integer i = 0 ; i < Trigger.new.size(); i++){
+            Opportunity opp = Trigger.new[i];
+            Opportunity oldOpp = Trigger.old[i];
+
+            if(opp.StageName == 'Closed Won' && oldOpp.StageName != 'Closed Won'){
+                
+                opp.CloseDate = Date.today();
+            }
+        }
+    }
+
 }
