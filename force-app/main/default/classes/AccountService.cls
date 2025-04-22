@@ -56,4 +56,12 @@ public class AccountService {
         // Update the accounts
         update accounts;
     }
+
+    public void setIndustryToEducation(List<Account> accounts){
+        for(Account account : accounts){
+            if(account.Industry == null){
+                account.Industry = 'Education';
+            }
+        }
+    }
 }
