@@ -56,4 +56,19 @@ public class AccountService {
         // Update the accounts
         update accounts;
     }
+
+    public void setIndustryToEducation(List<Account> accounts){
+        for(Account account : accounts){
+            if(account.Industry == null){
+                account.Industry = 'Education';
+            }
+        }
+    }
+
+    public void updateDescription(List<Account> accounts){
+        String formattedDateTime = Datetime.now().format('MM/dd/yyyy HH:mm:ss');
+        for(Account account : accounts){
+            account.Description = 'Updated on ' + formattedDateTime;
+        }
+    }
 }
