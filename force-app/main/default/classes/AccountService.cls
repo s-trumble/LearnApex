@@ -64,4 +64,11 @@ public class AccountService {
             }
         }
     }
+
+    public void updateDescription(List<Account> accounts){
+        String formattedDateTime = Datetime.now().format('MM/dd/yyyy HH:mm:ss');
+        for(Account account : accounts){
+            account.Description = 'Updated on ' + formattedDateTime;
+        }
+    }
 }
